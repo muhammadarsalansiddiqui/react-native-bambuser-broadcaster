@@ -49,13 +49,13 @@
 @property (nonatomic, copy) RCTBubblingEventBlock onBroadcastIdReceived;
 @property (nonatomic, copy) RCTBubblingEventBlock onUplinkTestComplete;
 @property (nonatomic, copy) RCTBubblingEventBlock onStreamHealthUpdate;
-@property (nonatomic, copy) RCTBubblingEventBlock onPictureSaved;
+@property (nonatomic, copy) RCTDirectEventBlock onPictureSaved;
 @property (nonatomic, copy) RCTBubblingEventBlock onIncomingTalkbackRequest;
 @property (nonatomic, copy) RCTBubblingEventBlock onTalkbackIdle;
 @property (nonatomic, copy) RCTBubblingEventBlock onTalkbackPlaying;
 @property (nonatomic, copy) RCTBubblingEventBlock onTalkbackAccepted;
 @property (nonatomic, copy) RCTBubblingEventBlock onTalkbackNeedsAccept;
-@property (nonatomic, copy) RCTBubblingEventBlock onCameraReady;
+@property (nonatomic, copy) RCTDirectEventBlock onCameraReady;
 @property (nonatomic, copy) RCTBubblingEventBlock onStartBroadcastNotReady;
 
 @end
