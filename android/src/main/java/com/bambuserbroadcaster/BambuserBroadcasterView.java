@@ -20,6 +20,7 @@ import com.facebook.react.bridge.WritableNativeMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 
 import java.io.File;
+import java.util.List;
 
 /**
  * Copyright Bambuser AB 2018
@@ -195,12 +196,15 @@ public class BambuserBroadcasterView extends RelativeLayout implements Lifecycle
 
     void setZoom(float zoom) {
         _zoom = zoom;
-        if (mBroadcaster != null && mBroadcaster.getZoomRatios() != null) {
-            int minZoom = mBroadcaster.getZoomRatios().get(0);
-            int maxZoom = mBroadcaster.getZoomRatios().get(mBroadcaster.getZoomRatios().size() - 1);
-            float zoomCalc = ((maxZoom - minZoom) * _zoom) + minZoom;
-            if (mBroadcaster != null) {
-                mBroadcaster.setZoom((int)zoomCalc);
+        if (mBroadcaster != null) {
+            List<Integer> zoomRatios = mBroadcaster.getZoomRatios();
+            if (zoomRatios != null) {
+                int minZoom = zoomRatios.get(0);
+                int maxZoom = zoomRatios.get(zoomRatios.size() - 1);
+                float zoomCalc = ((maxZoom - minZoom) * _zoom) + minZoom;
+                if (mBroadcaster != null) {
+                    mBroadcaster.setZoom((int)zoomCalc);
+                }
             }
         }
     }
